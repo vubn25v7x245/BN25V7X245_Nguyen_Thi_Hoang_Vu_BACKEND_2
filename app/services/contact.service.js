@@ -16,7 +16,7 @@ class ContactService {
     };
     // Remove undefined fields
     Object.keys(contact).forEach(
-      (key) => contact[key] === undefined && delete contact[key]
+      (key) => contact[key] === undefined && delete contact[key],
     );
     return contact;
   }
@@ -26,7 +26,7 @@ class ContactService {
     const result = await this.Contact.findOneAndUpdate(
       contact,
       { $set: { favorite: contact.favorite === true } },
-      { returnDocument: "after", upsert: true }
+      { returnDocument: "after", upsert: true },
     );
     return result;
   }
@@ -37,8 +37,9 @@ class ContactService {
   }
 
   async findByName(name) {
+    const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     return await this.find({
-      name: { $regex: new RegExp(new RegExp(name)), $options: "i" },
+      name: { $regex: escapedName, $options: "i" },
     });
   }
 
@@ -56,7 +57,7 @@ class ContactService {
     const result = await this.Contact.findOneAndUpdate(
       filter,
       { $set: update },
-      { returnDocument: "after" }
+      { returnDocument: "after" },
     );
     // Slide: return result.value (driver 4/5).
     // mongodb 6+ trả về document trực tiếp, nên lấy result khi không có .value.

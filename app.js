@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // define error-handling middleware last, after other app.use() and routes calls
-app.use((error, req, res, next) => {
+app.use((error, req, res, _next) => {
   // Middleware xử lý lỗi tập trung.
   // Trong các đoạn code xử lý ở các route, gọi next(error)
   // sẽ chuyển về middleware xử lý lỗi này
