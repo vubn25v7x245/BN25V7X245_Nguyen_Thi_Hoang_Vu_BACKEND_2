@@ -1,0 +1,24 @@
+{
+  "name": "contactbook-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Nguyễn Thị Hoàng Vũ",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.3",
+    "mongodb": "^7.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.10.1"
+  }
+}
